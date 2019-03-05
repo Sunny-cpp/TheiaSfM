@@ -149,12 +149,13 @@ endif (GLOG_FOUND)
 
 # Ceres
 message("-- Check for Ceres")
-find_package(Ceres REQUIRED SuiteSparse)
+#find_package(Ceres REQUIRED SuiteSparse)
 if (CERES_FOUND)
   message("-- Found Ceres: ${CERES_INCLUDE_DIRS}")
 else (CERES_FOUND)
-  message(FATAL_ERROR "Can't find Ceres. Please set CERES_INCLUDE_DIR & "
-    "CERES_LIBRARY")
+#  message(FATAL_ERROR "Can't find Ceres. Please set CERES_INCLUDE_DIR & " "CERES_LIBRARY")
+   set(Ceres_dir "/home/robot/happyCode/ceres-solver114")
+
 endif (CERES_FOUND)
 
 # OpenImageIO
@@ -197,7 +198,8 @@ endif (SUITESPARSE_FOUND)
 include_directories(
   include
   src
-  ${CERES_INCLUDE_DIRS}
+#  ${CERES_INCLUDE_DIRS}             #by ZY
+        ${Ceres_dir}/include
   ${GFLAGS_INCLUDE_DIRS}
   ${GLOG_INCLUDE_DIRS}
   ${SUITESPARSE_INCLUDE_DIRS}

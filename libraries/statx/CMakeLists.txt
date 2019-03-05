@@ -94,12 +94,13 @@ endif(GLOG_FOUND)
 if(STATX_WITH_CERES)
   # Check for CERES
   message("-- Check for Google ceres-solver")
-  find_package(Ceres REQUIRED)
+  find_package(Ceres)  #remove REQUIRED by ZY
   if (CERES_FOUND)
     message("-- Found Ceres headers in: ${CERES_INCLUDE_DIRS}")
     include_directories(${CERES_INCLUDE_DIR})
   else (CERES_FOUND)
-    message(FATAL_ERROR "Could not find Ceres. Please set CERES_INCLUDE_DIRS and CERES_LIBRARIES")
+#    message(FATAL_ERROR "Could not find Ceres. Please set CERES_INCLUDE_DIRS and CERES_LIBRARIES")
+  set(Ceres_dir "/home/robot/happyCode/ceres-solver114")
   endif(CERES_FOUND)
 
   # BLAS
